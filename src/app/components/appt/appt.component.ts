@@ -8,6 +8,7 @@ import { Doctor } from '../doctor/doctor.component';
   styleUrl: './appt.component.css'
 })
 export class ApptComponent {
+  isbook = false
   times = {
     morning:[
       "09:00 AM",
@@ -61,9 +62,11 @@ export class ApptComponent {
   }
   setAttr(arg:string){
     this.onSet.emit(arg)
+    this.isbook = false
   }
   bookAppointment(){
     this.onBook.emit("save")
+    this.isbook = true;
   }
   @Output() onSet = new EventEmitter<string>()
   @Output() onBook = new EventEmitter<string>()

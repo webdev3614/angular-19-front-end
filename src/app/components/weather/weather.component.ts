@@ -92,7 +92,9 @@ export class WeatherComponent implements OnInit {
       this.forecast = data.list.map((item: any) => {
         return this.getWeather(item)
       })
-      this.modalService.open(content,{ size: 'xl' });
+      this.modalService.open(content,{
+        windowClass: 'custom-modal'
+      });
     })
   }
   showWeather(callback: any) {

@@ -60,8 +60,11 @@
         </div>
     </div>
     <div class="footer">
-        <button class="btn btn-lg btn-outline-primary" (click)="bookAppointment()">
-            Book Appointment
+        <button class="btn d-flex flex-row justify-content-center align-items-center btn-lg btn-outline-primary" (click)="bookAppointment()">
+           @if(isbook){
+            <i class="fa-solid fa-check"></i>
+           }
+            <p class="m-1"> Book Appointment</p>
         </button>
     </div>
     }
