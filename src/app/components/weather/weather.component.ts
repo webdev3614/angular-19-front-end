@@ -78,7 +78,7 @@ export class WeatherComponent implements OnInit {
   }
   getWeather(data: any) {
     return {
-      datetime: this.getDateTime({ time: data.dt, timezone: data.timezone }),
+      datetime: data.dt_txt,
       weather: data.weather.length > 0 ? data.weather[0].description : "",
       temperature: Math.round(data.main.temp - 273),
       humidity: data.main.humidity,
@@ -88,6 +88,7 @@ export class WeatherComponent implements OnInit {
   }
   open(content: any) {
     this.showForecast((data: any) => {
+      console.log(data)
       this.forecast = data.list.map((item: any) => {
         return this.getWeather(item)
       })
@@ -130,7 +131,7 @@ export class WeatherComponent implements OnInit {
             lat: data[0].lat,
             lon: data[0].lon
           }
-          api = `https://api.openweathermap.org/data/2.5/forecast?lat=${this.cityData.lat}&lon=${this.cityData.lon}&cnt=5&appid=${this.API_KEY}`
+          api = `https://api.openweathermap.org/data/2.5/forecast?lat=${this.cityData.lat}&lon=${this.cityData.lon}&appid=${this.API_KEY}`
           new DataService(this.http).getData(api).subscribe({
             next: (data) => {
               callback(data)

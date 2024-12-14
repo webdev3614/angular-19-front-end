@@ -10,7 +10,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		@for (forecast of forecastData; track forecast.weather; let i = $index) {
+		@for (forecast of forecastData; track forecast.datetime; let i = $index) {
 			<tr>
 				<td>
 					{{ forecast.datetime }}
