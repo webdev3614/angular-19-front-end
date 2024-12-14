@@ -1,0 +1,34 @@
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Create Doctor</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<div class="row">
+			<div class="col d-flex flex-column justify-content-start align-items-start">
+				<p>Doctor Name</p>
+				<input type="text" class="form-control" value="{{name}}" (change)="onChangeName($event)"/>
+			</div>
+			<div class="col d-flex flex-column justify-content-start align-items-start">
+				<p>Qualification</p>
+				<input type="text" class="form-control" value="{{qualification}}" (change)="onChangeQualification($event)"/>
+			</div>
+		</div>
+		<div class="row d-flex flex-column justify-content-start align-items-start p-2">
+			<p>Image URL</p>
+			<input type="text" class="form-control" value="{{image_url}}" (change)="onChangeImageURL($event)"/>
+		</div>
+		<div class="row d-flex flex-column justify-content-start align-items-start p-2">
+			<p>Description</p>
+			<textarea class="form-control" rows="5" value="{{description}}" (change)="onChangeDescription($event)"></textarea>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary btn-outline-lg" (click)="save()">Create Doctor</button>
+	</div>
+</ng-template>
+
+<button class="btn-create btn d-flex flex-row justify-content-center align-items-center btn-primary btn-outline-lg p-2"
+	(click)="open(content)">
+	<p>+</p>
+</button>

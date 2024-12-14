@@ -1,0 +1,38 @@
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Forecast of Noida</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<app-forecast [forecastData]="forecast"/>
+	</div>
+	<div class="modal-footer">
+	</div>
+</ng-template>
+
+<button class="btn d-flex flex-row justify-content-center align-items-center btn-lg btn-outline-primary p-2" (click)="open(content)">
+	<p>
+		@if(weather.weather === "thunderstorm"){
+			<i class="fa-solid fa-cloud-bolt"></i>
+		}
+		@if(weather.weather === "drizzle"){
+			<i class="fa-solid fa-cloud-drizzle"></i>
+		}
+		@if(weather.weather === "rain"){
+			<i class="fa-solid fa-cloud-rain"></i>
+		}
+		@if(weather.weather === "snow"){
+			<i class="fa-solid fa-snowflake"></i>
+		}
+		@if(weather.weather === "atmospheric"){
+			<i class="fa-solid fa-cloud"></i>
+		}
+		@if(weather.weather === "clear sky"){
+			<i class="fa-solid fa-sun"></i>
+		}
+		@if(weather.weather === "clouds"){
+			<i class="fa-solid fa-clouds"></i>
+		}
+	</p>, 
+	<p>{{cityData.name}}</p>, <p>{{weather.temperature}}C</p>
+</button>

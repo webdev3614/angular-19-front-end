@@ -1,0 +1,43 @@
+.appt{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 180px;
+}
+
+.row{
+    width: 100%;
+    height: 100%;
+}
+
+.time{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: calc(100% - 180px);
+}
+
+.morning,.afternoon,.evening{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    width: 100%;
+    height: 80px;
+}
+
+b{
+    width: 100%;
+    height: 40px;
+}

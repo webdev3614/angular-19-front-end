@@ -1,0 +1,68 @@
+<div class="appt bg-light rounded-2 p-2">
+    @if(doctor.name!==""){
+    <div class="info">
+        <div class="row">
+            <div class="col-sm-3 p-3">
+                <img src="doctor.image_url" alt="doctor.name" />
+            </div>
+            <div class="col">
+                <h1>{{doctor.name}}</h1>
+                <h3 class="text-secondary">{{doctor.qualification}}</h3>
+                <p>{{doctor.description}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="time">
+        <b>Morning</b>
+        <div class="morning">
+            @for(time of times.morning;track time;let i = $index){
+            @if(doctor.attr===time){
+            <button class="btn btn-small btn-outline-primary">
+                {{time}}
+            </button>
+            }
+            @if(doctor.attr!==time){
+            <button class="btn btn-small btn-outline-secondary" (click)="setAttr(time)">
+                {{time}}
+            </button>
+            }
+            }
+        </div>
+        <b>Afternoon</b>
+        <div class="afternoon">
+            @for(time of times.afternoon;track time;let i = $index){
+            @if(doctor.attr===time){
+            <button class="btn btn-small btn-outline-primary">
+                {{time}}
+            </button>
+            }
+            @if(doctor.attr!==time){
+            <button class="btn btn-small btn-outline-secondary" (click)="setAttr(time)">
+                {{time}}
+            </button>
+            }
+            }
+        </div>
+        <b>Evening</b>
+        <div class="evening">
+            @for(time of times.evening;track time;let i = $index){
+            @if(doctor.attr===time){
+            <button class="btn btn-small btn-outline-primary">
+                {{time}}
+            </button>
+            }
+            @if(doctor.attr!==time){
+            <button class="btn btn-small btn-outline-secondary" (click)="setAttr(time)">
+                {{time}}
+            </button>
+            }
+            }
+        </div>
+    </div>
+    <div class="footer">
+        <button class="btn btn-lg btn-outline-primary" (click)="bookAppointment()">
+            Book Appointment
+        </button>
+    </div>
+    }
+</div>

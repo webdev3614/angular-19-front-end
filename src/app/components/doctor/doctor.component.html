@@ -1,0 +1,28 @@
+<div class="doctor  bg-light rounded-2">
+    <div class="tool border-bottom">
+        <div class="tool-title p-2">
+            <b>Doctors</b>
+        </div>
+        <div class="tool-bar p-2">
+            <app-create (onCreate)="createDoctor($event)"/>
+        </div>
+    </div>
+    <div class="list ist-group">
+        <ul>
+            @for (doctor of doctors; track doctor.name; let i = $index){
+                <li class="list-group-item">
+                    <div class="row border-bottom p-2">
+                        <div class="col-sm-7 d-flex flex-row justify-content-start align-items-center" (click)="selectDoctor(doctor)">
+                            <p>Dr.{{doctor.name}}</p>
+                        </div>
+                        <div class="col d-flex flex-row justify-content-end align-items-center">
+                            <button class="btn btn-lg btn-outline-lg" (click)="deleteDoctor(doctor)">
+                                <i class="fa-duotone fa-solid fa-trash text-danger"></i>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
